@@ -294,7 +294,9 @@ _obstack_free (struct obstack *h, void *obj)
     abort ();
 }
 
+#ifndef __APPLE__
 extern __typeof(_obstack_free) obstack_free __attribute__((alias("_obstack_free")));
+#endif
 
 _OBSTACK_SIZE_T
 _obstack_memory_used (struct obstack *h)
